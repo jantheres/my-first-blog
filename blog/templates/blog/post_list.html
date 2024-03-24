@@ -8,6 +8,9 @@
             </time>
             <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
             <p>{{ post.text|linebreaksbr }}</p>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
         </article>
     {% endfor %}
+
+    <a href="{% url 'notification_list' %}">Notifications</a>
 {% endblock %}
