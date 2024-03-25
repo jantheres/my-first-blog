@@ -39,11 +39,10 @@
             {{ comment.created_date }}
             {% if not comment.approved_comment %}
                 <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}">
-                   {% include './icons/hand-thumbs-down.svg' %}
+                   approve
                 </a>
                 <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}">
-                   {% include './icons/hand-thumbs-up.svg' %}
-                </a>
+                    reject                </a>
             {% endif %}
         </div>
         <strong>{{ comment.author }}</strong>
