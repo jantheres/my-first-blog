@@ -39,10 +39,10 @@
             {{ comment.created_date }}
             {% if not comment.approved_comment %}
                 <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}">
-                   approve
+                   reject
                 </a>
                 <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}">
-                    reject                
+                    approve               
                 </a>
             {% endif %}
         </div>
