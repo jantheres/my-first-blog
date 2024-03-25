@@ -107,3 +107,4 @@ def approved_comments(self):
 def notification_list(request):
     notifications = Notification.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'blog/notification_list.html', {'notifications': notifications})
+

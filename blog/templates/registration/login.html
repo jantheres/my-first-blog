@@ -5,28 +5,60 @@
         <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
 
-    <div style="display: flex; justify-content: center;">
-        <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            <div style="width: 300px;">
-                <table style="width: 100%;">
-                    <tr>
-                        <td style="padding-bottom: 10px;">{{ form.username.label_tag }}</td>
-                    </tr>
-                    <tr>
-                        <td style="padding-bottom: 10px;">{{ form.username }}</td>
-                    </tr>
-                    <tr>
-                        <td>{{ form.password.label_tag }}</td>
-                    </tr>
-                    <tr>
-                        <td>{{ form.password }}</td>
-                    </tr>
-                </table>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+        }
+        /* Adjust font size */
+        input[type="text"],
+        input[type="password"] {
+            font-size: 18px; /* Adjust the font size to your preference */
+            padding: 5px; /* Adjust padding as needed */
+        }
+        input[type="submit"] {
+            font-size: 18px; /* Adjust the font size to your preference */
+            margin-top: 10px;
+            padding: 5px 10px; /* Adjust padding as needed */
+        }
+        /* Adjust label font size */
+        label {
+            font-size: 18px; /* Adjust the font size to your preference */
+        }
+        /* Adjust table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding-bottom: 10px;
+        }
+        /* Adjust container width */
+        .form-container {
+            width: 300px;
+        }
+    </style>
 
-                <input type="submit" value="login" style="margin-top: 10px;" />
-                <input type="hidden" name="next" value="{{ next }}" />
-            </div>
-        </form>
-    </div>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-container">
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
+
+            <input type="submit" value="login" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+    </form>
 {% endblock %}

@@ -1,6 +1,13 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <style>
+        /* Custom CSS for post list page */
+        .post {
+            font-size: 18px; /* Adjust the font size as needed */
+        }
+    </style>
+
     {% for post in posts %}
         <article class="post">
             <time class="date">
